@@ -49,7 +49,7 @@
       <div class="jumbotron">
         <div class="container text-center">
           <h2>Genre Classifier</h2>
-          <h4><a href="http://cs.northwestern.edu/~pardo/courses/eecs352/index.php">Northwestern University EECS 352</a> with <a href="http://www.bryanpardo.com"> Professor Bryan Pardo </a> </h4>
+          <h4><a href="http://cs.northwestern.edu/~pardo/courses/eecs352/index.php" target="_blank">Northwestern University EECS 352</a> with <a href="http://www.bryanpardo.com" target="_blank"> Professor Bryan Pardo </a> </h4>
          </div>
         <div class="row text-center">
           <div class="col-md-4">
@@ -80,7 +80,7 @@ Therefore, genre classification has been a well-studied topic over the past deca
     
     <div class="container" id="Methodology">
       <h4 class="text-left">Methodology</h4>
-        Genre classification is centered around machine learning. Therefore, we choose, for this project, the k-nearest neighbors algorithm (KNN)  for doing the job. In addition, it is very crucial to determine the genres that we are classifying the music into and the dataset that we are training our algorithm on. We chose <a href="http://marsyasweb.appspot.com/download/data_sets/"> GTZAN Genre Collection Dataset. </a>There are 1,000 songs of 30 seconds each in .wav format, evenly distributed into 10 genres. The 10 different genres are: 
+        Genre classification is centered around machine learning. Therefore, we choose, for this project, the k-nearest neighbors algorithm (KNN)  for doing the job. In addition, it is very crucial to determine the genres that we are classifying the music into and the dataset that we are training our algorithm on. We chose <a href="http://marsyasweb.appspot.com/download/data_sets/" target="_blank"> GTZAN Genre Collection Dataset. </a>There are 1,000 songs of 30 seconds each in .wav format, evenly distributed into 10 genres. The 10 different genres are: 
 <ul>
         <li> Blues</li>
     <li> Classical</li>
@@ -146,7 +146,7 @@ Your browser does not support the audio element. Please get a new browser!
 </audio> <br>
         <b>Feature Extraction</b>
         <br>
-        Afterwards, we used an <a href = "https://github.com/danz1ka19/Music-Emotion-Recognition/blob/master/Feature-Extraction.py">existing script</a> online to conduct feature extraction. The script uses Librosa to extract the packages. It takes in audio files and output a .csv file that lists the final values of each feature for each song. Each song has 39 fields, among them ‘Song Name’ and ‘Genre’.
+        Afterwards, we used an <a href = "https://github.com/danz1ka19/Music-Emotion-Recognition/blob/master/Feature-Extraction.py" target="_blank">existing script</a> online to conduct feature extraction. The script uses Librosa to extract the packages. It takes in audio files and output a .csv file that lists the final values of each feature for each song. Each song has 39 fields, among them ‘Song Name’ and ‘Genre’.
         <br>
         <br>
         While reviewing the results, we find out that among features, the range of values vary drastically. Therefore, we decided to normalize all data to prevent potential skews while running through the KNN classifier. We modified the pre-existing code to normalize the data before it exports it to a .CSV. Our version of the code that extracts only the features we used and normalizes the data along with an example output can be found here <a href="export/exampleoutput.zip"> (.Zip).</a> The equation for normalization is shown below: 
