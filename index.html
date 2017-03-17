@@ -115,7 +115,7 @@ Therefore, genre classification has been a well-studied topic over the past deca
 
     <div class="container" id="Results">
       <h4 class="text-left">Results</h4>
-        <br> <br>
+        <br>
         We ran the KNN classifier based on our dataset setup and we had a 54.50% hit rate.  For individual genres, the hit rate ranges from as low as 5% for Rock and as high as 90% for Classical. <br> <br>
         For individual genres, the classifier did well on genres of classical and pop; <br>
 The classifier did okay in country, disco and metal; <br>
@@ -158,6 +158,20 @@ The classifier did poorly in blues, hiphop, jazz, reggae and rock. <br>
 
     <div class="container" id="Conclusion">
       <h4 class="text-left">Conclusion</h4>
+        <p> Based on the subsequent testing, we determined that our hypothesis is proved to be wrong. However, we think that there are the following things that potentially caused the results and we could improve upon given more time:</p>
+            <ol> 
+        <li> <p> “Fewer Features”. Given more time, we might be able to use more sophisticated data analysis instead of mere eyeballing. Using the results from the analysis, we will be able to pick features that best correlate with classification of the genres that we are testing on.  
+</p></li>
+                <li> <p> “More Features”. Further, we have a theory that the results might not be enough in the sense of mapping into high-level features. Based on librosa that our feature extraction script is using, the 37 features are heavily tilted towards the timbre feature group. Therefore, by using other, more comprehensive packages, such as Essentia (another music and audio processing package in Python), we will be able to extract more features for the rhythm and harmony feature group, and potentially other high-level feature group such as pitch and complexity. In that way, by evenly distributing the weight for each feature group in the feature vector, we could potentially acquire better results.
+</p></li>
+                <li> <p> The capacity of the dataset used for training. We only have 1,000 songs in our dataset, with 800 used for training and 200 used for testing. With a dataset of a bigger size, such as 10,000 songs, we might be able to train the KNN algorithm to do a better job.
+</p></li>
+                <li> <p> The defined genres. The current genres that we are using might not be accurate enough. For example, disco is a genre that is quite antique and not representative enough of the music in the present. Genres such as blues and jazz, metal and rock, could debatably be thought as similar genres or one being a subgenre of the other.  A better definition of the genres could help us in getting a more accurate result.</p></li>
+        </ol>
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         
     </div><!-- End container-->
