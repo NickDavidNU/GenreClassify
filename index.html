@@ -31,7 +31,6 @@
             <li><a href="#Methodology">Methodology</a></li>
             <li><a href="#Results">Results</a></li>
             <li><a href="#Conclusion">Conclusion</a></li>
-            <li><a href="#Future">Future Steps</a></li>
 
           </ul>
         </div><!-- End navbar body-->
@@ -116,16 +115,53 @@ Therefore, genre classification has been a well-studied topic over the past deca
 
     <div class="container" id="Results">
       <h4 class="text-left">Results</h4>
+        <br> <br>
+        We ran the KNN classifier based on our dataset setup and we had a 54.50% hit rate.  For individual genres, the hit rate ranges from as low as 5% for Rock and as high as 90% for Classical. <br> <br>
+        For individual genres, the classifier did well on genres of classical and pop; <br>
+The classifier did okay in country, disco and metal; <br>
+The classifier did poorly in blues, hiphop, jazz, reggae and rock. <br>
+        <ul> 
+        <li> Blues songs are most often classified incorrectly into disco and rock.
+</li>
+            <li> Hiphop songs are most often classified incorrectly into disco and pop.
+</li>
+            <li> Jazz songs are most often classified incorrectly into country, disco and reggae.
+</li>
+            <li> Reggae songs are most often classified incorrectly into disco.
+</li> 
+            <li> Rock songs are most often classified incorrectly into country, disco and reggae.</li>
+        </ul>
+<br> In addition, disco, jazz, reggae and rock are the most popular genres that the songs were classified incorrectly into.
+<br>
+<br>
+<b> Subsequent Testing </b>
+        <br>
+        First of all, we changed our setup to test for a better result: we train the model on 800 songs and test the data on the 800 songs itself to see if the model gives us a better result. The result, as it turns out, is better. However, the results mirrored the hit rates of genres for our original setup. This means that there might be an incorrect setup of our feature vectors.
+<br> <br>
+        We had a hypothesis on why the classifier does poorly: <u> we have too many features that potentially caused interference and a dampening effect when KNN is running the classification.</u> Therefore, we decided to run the KNN algorithm again with fewer features. 
+<br> <br>
+        We did further data analysis on our current dataset. We calculated the mean and standard deviation for each feature of each genre group. From them, we eyeballed to pick the features for our new feature vector with a smaller dimension under the two conditions:
+        <ul>
+        <li> For a feature, the averages are visibly distinct among the genres.</li>
+            <li> For a feature, the standard deviation should be comparatively small in all genres.
+</li>
+            <li> The features should represent all three of our high-level features
+</li> 
+        </ul>
+        In this way, we think that such process would be able to find features that better represent the genres and also differentiable.
+<br>After a few runs, we found out that a new feature vector of 11 features give us a marginally better accuracy. The new overall hit rate is 55%.
+
+
 
 
     </div><!-- End container-->
 
     <div class="container" id="Conclusion">
       <h4 class="text-left">Conclusion</h4>
+        <br>
+        
     </div><!-- End container-->
- <div class="Future" id="Future">
-      <h4 class="text-left">Future Steps</h4>
-    </div><!-- End container-->
+
 
     <footer>
       <div class="navbar navbar-default navbar-fixed-bottom">
