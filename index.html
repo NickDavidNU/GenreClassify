@@ -31,6 +31,8 @@
             <li><a href="#Methodology">Methodology</a></li>
             <li><a href="#Results">Results</a></li>
             <li><a href="#Conclusion">Conclusion</a></li>
+            <li><a href="#Future">Future Steps</a></li>
+
           </ul>
         </div><!-- End navbar body-->
       </div><!-- End container-->
@@ -58,10 +60,58 @@
 
     <div class="container" id="Overview">
       <h4 class="text-left">Overview</h4>
+        After the boom of music streaming business and the ability for anyone to upload their own songs to YouTube and SoundCloud, the music library for providers such as iTunes, Spotify and Pandora has increasingly expanded in a faster and larger scale. As part of the service, all songs provided to the users contain many tags and genre is one of them. It is a common way for music service to personalize and make the music experiences better for each user.
+        <br>
+        <br>
+Therefore, genre classification has been a well-studied topic over the past decade. Our goal is to design a program that can take an audio file as input and return its best estimation for the genre of the inputted audio file. We think that by further exploring the low-level mechanisms that goes into genre classification will help us understand which features of audio files are best for classifying Western music in general.
+        <br>
+        <br>
+        We are trying to develop and compare the accuracy of our KNN classifier based on different sets of features. In detail, we are trying to find the feature vector that comprises of the low-level features that will generate the most accurate results of genre classification.
+
+
     </div><!-- End container-->
     
     <div class="container" id="Methodology">
       <h4 class="text-left">Methodology</h4>
+        Genre classification is centered around machine learning. Therefore, we choose, for this project, the k-nearest neighbors algorithm (KNN)  for doing the job. In addition, it is very crucial to determine the genres that we are classifying the music into and the dataset that we are training our algorithm on. We chose GTZAN Genre Collection Dataset. There are 1,000 songs of 30 seconds each in .wav format, evenly distributed into 10 genres. The 10 different genres are: 
+<ul>
+        <li> Blues</li>
+    <li> Classical</li>
+        <li> Country</li>
+    <li> Disco</li>
+        <li> Hip-Hop</li>
+    <li> Jazz</li>
+    <li> Metal </li>
+    <li> Pop</li>
+    <li> Raggae</li>
+    <li> Rock</li>
+        </ul>
+        <b>Feature Extraction</b>
+        <br>
+        Afterwards, we used an <a href = "https://github.com/danz1ka19/Music-Emotion-Recognition/blob/master/Feature-Extraction.py">existing script</a> online to conduct feature extraction. The script uses Librosa to extract the packages. It takes in audio files and output a .csv file that lists the final values of each feature for each song. Each song has 39 fields, among them ‘Song Name’ and ‘Genre’.
+        <br>
+        <br>
+        While reviewing the results, we find out that among features, the range of values vary drastically. Therefore, we decided to normalize all data to prevent potential skews while running through the KNN classifier. We modified the pre-existing code to normalize the data before it exports it to a .CSV. Our version of the code that extracts only the features we used and normalizes the data along with an example output can be found here <a href="export/exampleoutput.zip"> (.Zip).</a>
+<br>
+        <br>
+        <b> Classification</b>
+        <br>
+        <br>
+        The k-nearest neighbors algorithm (KNN) takes an input of two .csv files:
+        <br>
+        <ul>
+        <li> Training .csv: a matrix of the individual songs versus the values of all extracted features.
+            </li>
+            <li> Testing .csv: a matrix of the individual songs versus the labelled genres.
+            </li>
+        </ul>
+        Each song is passed into the matrix as a feature vector of 37 fields. The 37 features maps into three high-level features: rhythm, timbre and harmony.
+<br> <br> Each file has all 1000 songs in them. The songs are not randomized and grouped in terms of genres. <br> <br>
+        We determined that we are going to split the datasets into two: 800 songs for training and 200 songs for testing. The KNN algorithm divides the files into corresponding portions for its training and testing.  In other words, each genre has 80 songs used for training the model and 20 songs used for testing the model.
+<br> <br>
+        <b> Evaluation</b> <br> <br>
+            	The output of KNN matrix is used for evaluation of the algorithm. The vector of genre classification results, which in our case 200 of them, is made into a confusion matrix. The matrix describes the performance of the classifier in terms of how many songs that are correctly classified and how many are not. For the confusion matrix, we also calculated the hit rates overall genre classification and that of each genre.
+
     </div><!-- End container--> 
 
     <div class="container" id="Results">
@@ -72,6 +122,9 @@
 
     <div class="container" id="Conclusion">
       <h4 class="text-left">Conclusion</h4>
+    </div><!-- End container-->
+ <div class="Future" id="Future">
+      <h4 class="text-left">Future Steps</h4>
     </div><!-- End container-->
 
     <footer>
