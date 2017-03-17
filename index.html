@@ -90,7 +90,9 @@ Therefore, genre classification has been a well-studied topic over the past deca
         Afterwards, we used an <a href = "https://github.com/danz1ka19/Music-Emotion-Recognition/blob/master/Feature-Extraction.py">existing script</a> online to conduct feature extraction. The script uses Librosa to extract the packages. It takes in audio files and output a .csv file that lists the final values of each feature for each song. Each song has 39 fields, among them ‘Song Name’ and ‘Genre’.
         <br>
         <br>
-        While reviewing the results, we find out that among features, the range of values vary drastically. Therefore, we decided to normalize all data to prevent potential skews while running through the KNN classifier. We modified the pre-existing code to normalize the data before it exports it to a .CSV. Our version of the code that extracts only the features we used and normalizes the data along with an example output can be found here <a href="export/exampleoutput.zip"> (.Zip).</a>
+        While reviewing the results, we find out that among features, the range of values vary drastically. Therefore, we decided to normalize all data to prevent potential skews while running through the KNN classifier. We modified the pre-existing code to normalize the data before it exports it to a .CSV. Our version of the code that extracts only the features we used and normalizes the data along with an example output can be found here <a href="export/exampleoutput.zip"> (.Zip).</a> The equation for normalization is shown below: 
+        <br> <br> 
+        <img src="media/equation.png" alt="equation">
 <br>
         <br>
         <b> Classification</b>
@@ -132,19 +134,17 @@ The classifier did poorly in blues, hiphop, jazz, reggae and rock. <br>
             <li> Rock songs are most often classified incorrectly into country, disco and reggae.</li>
         </ul>
 <br> In addition, disco, jazz, reggae and rock are the most popular genres that the songs were classified incorrectly into.
-<br>
-        <b> Graphs: </b> <br> <br>
-        Graph 1: Compraing running 37-Feature KNN with 800 songs to train, 200 seperate to test vs 800 songs to train, same 800 to test: <br>
-        <img src="media/graph1.png" alt="KNN 800 vs 200 testing 37 feat" style="width:735px">
-        <br>
-        Graph 2: Comparing 37 feature KNN with 800 songs to train, 200 seperate to test vs 11 Feature KNN with 800 songs to train, 200 seperate to test:
-        <br>
-        <img src="media/graph2.png" alt="KNN 37 feature vs 11 feautre" style="width:735px">
+<br> <br>
+        <b> Confusion Matrix for 800 train, 200 test</b> <br>
+        <br> <img src="media/800,200.png" alt="800,200" style="width:735px"> <br>
+
 <br>
 <b> Subsequent Testing </b>
-        <br>
+        <br> <br>
         First of all, we changed our setup to test for a better result: we train the model on 800 songs and test the data on the 800 songs itself to see if the model gives us a better result. The result, as it turns out, is better. However, the results mirrored the hit rates of genres for our original setup. This means that there might be an incorrect setup of our feature vectors.
 <br> <br>
+        <b> Confusion Matrix for 800 train, 800 test</b> <br>
+        <br> <img src="media/800,800.png" alt="800,800" style="width:735px"> <br> <br> 
         We had a hypothesis on why the classifier does poorly: <u> we have too many features that potentially caused interference and a dampening effect when KNN is running the classification.</u> Therefore, we decided to run the KNN algorithm again with fewer features. 
 <br> <br>
         We did further data analysis on our current dataset. We calculated the mean and standard deviation for each feature of each genre group. From them, we eyeballed to pick the features for our new feature vector with a smaller dimension under the two conditions:
@@ -156,8 +156,14 @@ The classifier did poorly in blues, hiphop, jazz, reggae and rock. <br>
 </li> 
         </ul>
         In this way, we think that such process would be able to find features that better represent the genres and also differentiable.
-<br>After a few runs, we found out that a new feature vector of 11 features give us a marginally better accuracy. The new overall hit rate is 55%.
-
+<br>After a few runs, we found out that a new feature vector of 11 features give us a marginally better accuracy. The new overall hit rate is 55%. <br> <br>
+        <b> Graphs: </b> <br> <br>
+        Graph 1: Compraing running 37-Feature KNN with 800 songs to train, 200 seperate to test vs 800 songs to train, same 800 to test: <br>
+        <img src="media/graph1.png" alt="KNN 800 vs 200 testing 37 feat" style="width:735px">
+        <br>
+        Graph 2: Comparing 37 feature KNN with 800 songs to train, 200 seperate to test vs 11 Feature KNN with 800 songs to train, 200 seperate to test:
+        <br>
+        <img src="media/graph2.png" alt="KNN 37 feature vs 11 feautre" style="width:735px">
 
 
 
