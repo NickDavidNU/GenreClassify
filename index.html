@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- The line below is responsive to the screen size -->
@@ -13,6 +16,8 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/87382e673b.js"></script>
+      <script src="graph.js" type="text/javascript"></script>
+      
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="my-navbar">
@@ -61,6 +66,31 @@
 
     <div class="container" id="Results">
       <h4 class="text-left">Results</h4>
+        <center><div class="dropdown">
+  <center>
+  <button id="buttontitle" onclick="dropDownClicked()" class="dropbtn">Bicep Curls</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a onclick="optionClicked(1)">Blues</a>
+      <a onclick="optionClicked(2)">Classical</a>
+      <a onclick="optionClicked(3)">Country</a>
+    <a onclick="optionClicked(4)">Disco</a>
+    <a onclick="optionClicked(5)">Hip-Hop</a>
+    <a onclick="optionClicked(6)">Jazz</a>
+    <a onclick="optionClicked(7)">Metal</a>
+    <a onclick="optionClicked(8)">Pop</a>
+    <a onclick="optionClicked(9)">Reggae</a>
+    <a onclick="optionClicked(9)">Rock</a>
+
+
+
+
+
+
+
+      </div> </center></div>
+        <center><div id="curve_chart"></div></center>
+
+      </div>  
     </div><!-- End container-->
 
     <div class="container" id="Conclusion">
